@@ -137,66 +137,67 @@ __fastcall TOptionDlg::TOptionDlg(TComponent* AOwner)
 	OutputSoundcards->Items->EndUpdate();
 
 
-	if( Font->Charset != SHIFTJIS_CHARSET ){
+		if( Font->Charset != SHIFTJIS_CHARSET ){
 		Caption = Remote ? SETUPTITLEREMOTE:SETUPTITLE;   //AA6YQ 1.66C
-		DefBtn->Caption = "Set Default(Demodulator)";
-		TabPara->Caption = "Decode";
+		DefBtn->Caption = "Ripristina Predefiniti (Demodulatore)";
+		TabPara->Caption = "Decodifica";
 		TabTx->Caption = "TX";
-		TabFont->Caption = "Font/Window";
-		TabMisc->Caption = "Misc";
-		GrpDisc->Caption = "Discriminator";
-		GrpLimit->Caption = "Limit Amp.";
-		GrpFilter->Caption = "Pre-Filter";
-		DemType->Caption = "Type";
-		DemType->Items->Strings[0] = "IIR resonator";
+		TabFont->Caption = "Caratteri/Finestra";
+		TabMisc->Caption = "Varie / Misc";
+		GrpDisc->Caption = "Discriminatore";
+		GrpLimit->Caption = "Amplificatore di Limite";
+		GrpFilter->Caption = "Pre-Filtro";
+		DemType->Caption = "Tipo";
+		DemType->Items->Strings[0] = "Risonatore IIR";
 		DemType->Items->Strings[1] = "FIR BPF";
 		DemType->Items->Strings[2] = "PLL";
-		DemBpfBtn->Caption = "Show";
-		GrpLPF->Caption = "Smooth LPF";
-		LSmooz->Caption = "Order";
-		PreBpfBtn->Caption = "Show";
-		CheckRXBPFAFC->Caption = "AFC Connection";
+		DemBpfBtn->Caption = "Mostra";
+		GrpLPF->Caption = "Filtro LPF Lineare";
+		LSmooz->Caption = "Ordine";
+		PreBpfBtn->Caption = "Mostra";
+		CheckRXBPFAFC->Caption = "Connessione AFC";
 		LMU2->Caption = "2µ";
 		LGM->Caption = "Gm.";
-		CancelBtn->Caption = "Cancel";
-		LLoopOrder->Caption = "Order";
-		LOutOrder->Caption = "Order";
-		LBaudRate->Caption = "BaudRate";
-		CheckMajority->Caption = "Majority Logic";
-		CheckIgnoreFream->Caption = "Ignore framing error";
-		BitLen->Caption = "BitLength";
-		StopLen->Caption = "StopLength";
-		ParitySel->Caption = "Parity";
-		DefStopBit->Caption = "Default RxStop bit";
-		CheckDblSft->Caption = "Double shift";
-		LOutLvl->Caption = "Digital Output";
-		LCharW->Caption = "Char. Wait";
-		PttInv->Caption = "Invert Logic";
-		GrpInBtn->Caption = "Input Button";
-		MacroImm->Caption = "Convert Immediately";
-		LFont->Caption = "Font";
-		FontBtn->Caption = "Ref";
-		CheckPalette->Caption = "Use Palette";
-		CheckZero->Caption = "slash zero";
-		GrpDispAdj->Caption = "Adjust";
-		LW->Caption = "Width";
-		LH->Caption = "Height";
-		XYInv->Caption = "Reverse rotation";
-		GrpRx->Caption = "RxWindow";
-		GrpIn->Caption = "TxWindow";
-		LRXB->Caption = "Back";
-		LRXC->Caption = "Char.";
-		LRXS->Caption = "Char. sent";
-		LINB->Caption = "Back";
-		LINC->Caption = "Char.";
-		LINS->Caption = "Char. sent";
-		GrpCard->Caption = "Sound Card";
-		RGLoop->Caption = "Sound loopback";
-		RGLoop->Items->Strings[1] = "Int.";
-		RGLoop->Items->Strings[2] = "Ext.(SAT)";
-		TxPort->Caption = "Tx Port";
-		TxPort->Items->Strings[0] = "Sound";
-		TxPort->Items->Strings[1] = "Sound + COM-TxD (FSK)";
+		CancelBtn->Caption = "Annulla";
+		LLoopOrder->Caption = "Ordine";
+		LOutOrder->Caption = "Ordine";
+		LBaudRate->Caption = "BaudRate (Velocità)";
+		CheckMajority->Caption = "Logica di Maggioranza";
+		CheckIgnoreFream->Caption = "Ignora errore di framing";
+		BitLen->Caption = "Lunghezza Bit";
+		StopLen->Caption = "Bit di Stop";
+		ParitySel->Caption = "Parità";
+		DefStopBit->Caption = "Bit Stop Rx Predefinito";
+		CheckDblSft->Caption = "Doppio Shift (Spostamento)";
+		LOutLvl->Caption = "Uscita Digitale";
+		LCharW->Caption = "Attesa Carattere";
+		PttInv->Caption = "Inverti Logica";
+		GrpInBtn->Caption = "Pulsante di Ingresso";
+		MacroImm->Caption = "Converti Immediatamente";
+		LFont->Caption = "Carattere / Font";
+		FontBtn->Caption = "Sfoglia";
+		CheckPalette->Caption = "Usa Tavolozza";
+		CheckZero->Caption = "Zero Tagliato (Ø)";
+		GrpDispAdj->Caption = "Regolazione Display";
+		LW->Caption = "Larghezza";
+		LH->Caption = "Altezza";
+		XYInv->Caption = "Inverti Rotazione X-Y";
+		GrpRx->Caption = "Finestra di Ricezione (Rx)";
+		GrpIn->Caption = "Finestra di Trasmissione (Tx)";
+		LRXB->Caption = "Sfondo";
+		LRXC->Caption = "Testo";
+		LRXS->Caption = "Testo inviato";
+		LINB->Caption = "Sfondo";
+		LINC->Caption = "Testo";
+		LINS->Caption = "Testo inviato";
+		GrpCard->Caption = "Scheda Audio";
+		RGLoop->Caption = "Loopback Audio";
+		RGLoop->Items->Strings[1] = "Interno";
+		RGLoop->Items->Strings[2] = "Esterno (SAT)";
+		TxPort->Caption = "Porta di Trasmissione (Tx)";
+		TxPort->Items->Strings[0] = "Scheda Audio";
+		TxPort->Items->Strings[1] = "Scheda Audio + COM-TxD (FSK)";
+
 
 		CBFix45->Caption = "Fixes 45.45 baud";
 		SBIN1->Font->Name = sys.m_BtnFontName;
@@ -347,6 +348,7 @@ void __fastcall TOptionDlg::UpdateUI(void)
 	GB4->Enabled = f;
 	SetGroupEnabled(GB4);
 	Source->Enabled = f;
+
 }
 //---------------------------------------------------------------------------
 TSpeedButton *__fastcall TOptionDlg::GetSB(int n)
@@ -613,6 +615,9 @@ int __fastcall TOptionDlg::Execute(CFSKDEM *fp, CFSKMOD *mp)
 	}
 	UpdateUI();
 	m_DisEvent = 0;
+
+	SetupTimer->Enabled= True; //1.70K
+
 	int r = ShowModal();
 	if( r == IDOK ){
 		m_DisEvent++;
@@ -929,6 +934,8 @@ int __fastcall TOptionDlg::Execute(CFSKDEM *fp, CFSKMOD *mp)
 		if( sys.m_TxPort != TxPort->ItemIndex ) COMM.change = 1;
 		sys.m_TxPort = TxPort->ItemIndex;
 		sys.m_MemWindow = MemWin->Checked;
+
+		sys.m_SetupOnTop = SetupOnTop->Checked; //1.70K
 	}
 	else {
 		r = FALSE;
@@ -1472,6 +1479,7 @@ void __fastcall TOptionDlg::DefBtnClick(TObject *Sender)
 	pllOutFC->Text = 200;
 	HamBtnClick(NULL);
 }
+
 //---------------------------------------------------------------------------
 void __fastcall TOptionDlg::RadioBtnClick(TObject *Sender)
 {
@@ -1823,8 +1831,10 @@ void __fastcall TOptionDlg::HideFlexAudioClick(TObject *Sender)
 
 			} else {
 				NewDeviceNumber = MappedOutputDeviceNumber;
-			}
-		}
+
+			}
+
+		}
 
 		OutputSoundcards->ItemIndex = NewDeviceNumber;
 		DevOutNo->ItemIndex = NewDeviceNumber+1;
@@ -1837,3 +1847,23 @@ void __fastcall TOptionDlg::HideFlexAudioClick(TObject *Sender)
 //---------------------------------------------------------------------------
 
 
+void __fastcall TOptionDlg::SetupOnTopClick(TObject *Sender)
+{
+	sys.m_SetupOnTop = SetupOnTop->Checked; //1.70K
+	if( sys.m_SetupOnTop ){
+		FormStyle = fsStayOnTop;
+		}
+	else {
+		FormStyle = fsNormal;
+	}
+}
+
+
+void __fastcall TOptionDlg::SetupTimerTimer(TObject *Sender)
+{
+
+	SetupTimer->Enabled=False;
+
+	SetupOnTop->Checked = sys.m_SetupOnTop;   //1.70K
+}
+//---------------------------------------------------------------------------

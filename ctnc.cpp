@@ -132,7 +132,7 @@ BOOL __fastcall CCtnc::PutRxFifo(BYTE c)
 		m_rxbuf[m_rxwp] = c;
 	}
 	m_rxwp++;
-	if( m_rxwp >= (int)sizeof(m_rxbuf) ) m_rxwp = 0;	//JA7UDE 0428
+	if( m_rxwp >= (int)sizeof(m_rxbuf) ) m_rxwp = 0;	//IZ4OSH 0428
 	m_rxcnt++;
     return TRUE;
 }

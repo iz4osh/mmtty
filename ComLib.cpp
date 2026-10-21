@@ -25,7 +25,7 @@
 #include "rtty.h"
 #include "LogFile.h"
 //---------------------------------------------------------------------------
-enum TFontPitch { fpDefault, fpVariable, fpFixed };	//JA7UDE 0427
+enum TFontPitch { fpDefault, fpVariable, fpFixed };	//IZ4OSH 0427
 //---------------------------------------------------------------------------
 //#define	SYSMB	1			// MessageBox 0-Application, 1-System
 //
@@ -76,19 +76,23 @@ void __fastcall ShowHtmlHelp(LPCSTR pContext)
 			hd = Application->MainForm->Handle;
 		}
 
-		if( !strcmpi(GetEXT(bf), "HLP") ){
-			::WinHelp(hd, bf, HELP_FINDER, 0);
-		}
-		else if( !strcmpi(GetEXT(bf), "CHM") ){
+		//1.70K look for CHM first
+
+		if( !strcmpi(GetEXT(bf), "CHM") ){
 			if( pContext ){
 				char cmd[512];
-                sprintf(cmd, "HH.EXE %s::/%s", bf, pContext);
-                ::WinExec(cmd, SW_SHOWDEFAULT);
-            }
-            else {
+				sprintf(cmd, "HH.EXE %s::/%s", bf, pContext);
+				::WinExec(cmd, SW_SHOWDEFAULT);
+			}
+			else {
 				::ShellExecute(hd, "open", bf, NULL, NULL, SW_SHOWDEFAULT);
-            }
+			}
 		}
+
+		else if( !strcmpi(GetEXT(bf), "HLP") ){
+			::WinHelp(hd, bf, HELP_FINDER, 0);
+		}
+
 		else {
 			CWebRef	WebRef;
 			WebRef.ShowHTML(bf);
@@ -100,6 +104,7 @@ void __fastcall ShowHtmlHelp(LPCSTR pContext)
 	else {
 		ErrorMB( "'%s'が見つかりません.\r\n\r\nMMTTY English Web Site からダウンロードして下さい.", sys.m_HTMLHelp.c_str());
 	}
+
 }
 #if 0		// Delete by JE3HHT on 29.Sep.2010
 void ShowHelp(int index)
@@ -160,7 +165,7 @@ void InitSampType(void)
 //---------------------------------------------------------------------------
 int IsFile(LPCSTR pName)
 {
-	if( FileExists( pName ) )	//JA7UDE 0428
+	if( FileExists( pName ) )	//IZ4OSH 0428
 		return 1;
 	else
 		return 0;
@@ -1928,9 +1933,9 @@ CPrintText::~CPrintText()
 {
 	int i;
 	for( i = 0; i < TEXTLINEMAX; i++ ){
-		if( pList[i] != NULL ) delete[] pList[i];   	//JA7UDE 0428
+		if( pList[i] != NULL ) delete[] pList[i];   	//IZ4OSH 0428
 		pList[i] = NULL;
-		if( pColList[i] != NULL ) delete[] pColList[i];	//JA7UDE 0428
+		if( pColList[i] != NULL ) delete[] pColList[i];	//IZ4OSH 0428
 		pColList[i] = NULL;
 	}
 }
@@ -3403,7 +3408,9 @@ CWebRef::CWebRef()
 
 void CWebRef::ShowHTML(LPCSTR url)
 {
+
 	char    cmd[1024];
+
 	MakeCommand(cmd, HTML.c_str(), url);
 	::WinExec(cmd, SW_SHOWDEFAULT);
 }

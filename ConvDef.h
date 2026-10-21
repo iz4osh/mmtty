@@ -21,7 +21,7 @@
 #ifndef ConvDefH
 #define ConvDefH
 //----------------------------------------------------------------------------
-/* JA7UDE 0428
+/* IZ4OSH 0428
 #include <vcl\ExtCtrls.hpp>
 #include <vcl\Buttons.hpp>
 #include <vcl\StdCtrls.hpp>
@@ -36,6 +36,12 @@
 */
 //----------------------------------------------------------------------------
 #include "LogConv.h"
+#include <System.Classes.hpp>
+#include <Vcl.Buttons.hpp>
+#include <Vcl.Controls.hpp>
+#include <Vcl.ExtCtrls.hpp>
+#include <Vcl.Grids.hpp>
+#include <Vcl.StdCtrls.hpp>
 //----------------------------------------------------------------------------
 #define	PREREADMAX	100
 class TConvDefDlg : public TForm

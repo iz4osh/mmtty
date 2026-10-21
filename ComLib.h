@@ -19,10 +19,10 @@
 
 #ifndef ComLibH
 #define ComLibH
-/* JA7UDE 0427 */
+/* IZ4OSH 0427 */
 #include <inifiles.hpp>
 #include <Grids.hpp>
-#include <Graphics.hpp>	//JA7UDE 0427
+#include <Graphics.hpp>	//IZ4OSH 0427
 #include <Buttons.hpp>
 #include <stdio.h>
 #include <stdlib.h>
@@ -32,7 +32,7 @@
 #include <SHELLAPI.H>
 								//AA6YQ  1.65D->1.66G,  JE3HHT 1.67
 #define	VERID	"Ver1.70"       //K6TU   1.68A -> 1.70A Hide FlexRadio Reserved and IQ Audio Devices
-#define	VERBETA	"H"             //JA7UDE 1.70A -> 1.70B G3WYW FT-991 CAT support
+#define	VERBETA	"K"             //IZ4OSH 1.70A -> 1.70B G3WYW FT-991 CAT support
 								//AA6YQ  1.70C          added COM16-32 to PTT/FSK port selector and Radio port selector, added 991 to Yaesu Group selector entry
 								//AA6YQ  1.70D          prevent shift > 4000 Hz so CSlideFFT::Create does not divide by zero
 								//AA6YQ  1.70E          limit PTT/FSK port selector and Radio port selector to display only 8 items
@@ -42,11 +42,13 @@
 								//                      provide "Hide FlexRadio Reserved and IQ Audio Devices" checkbox on the Options panel's Soundcard tab.
 								//AA6YQ  1.70F          notify user if attempting to open FSK TxD port at low speed, as many serial port devices can't do this
 								//                      accept RXM_SOUNDSOURCE message to change soundcard source channel (mono, left, right)
-								//JA7UDE 1.70G          translate new 1.70F error message into Japanese
+								//IZ4OSH 1.70G          translate new 1.70F error message into Japanese
 								//AA6YQ  1.70H          correct regression in 1.70E that prevents correct frequency tracking for FT-891 and FT-991
+								//AA6YQ  1.70J          update documentation and URLs
+								//AA6YQ  1.70K			limit Help menu to one arrangement, increase height of VerDSP dialog, add "Setup always on top" option
 
 #define	VERTTL2	"MMTTY "VERID VERBETA
-#define	VERTTL  VERTTL2" (C) JE3HHT 2000-2010."
+#define	VERTTL  VERTTL2" Licensed under LGPL"       //1.70J
 
 #define SETUPTITLE "Setup MMTTY "VERID VERBETA      //AA6YQ 1.66C
 #define SETUPTITLEREMOTE "Setup "VERID VERBETA      //AA6YQ 1.66C
@@ -355,6 +357,7 @@ typedef struct {
 	int			m_DisWindow;
 	int			m_StayOnTop;
 	int			m_MemWindow;
+	int 		m_SetupOnTop; //1.70K
 
 	int			m_LWait;
 	AnsiString	m_LogGridWidths;
@@ -731,7 +734,7 @@ void AddL2(LPSTR t, LPCSTR pKey, LPCSTR s, UCHAR c1, UCHAR c2, int size);
 void Yen2CrLf(AnsiString &ws, AnsiString cs);
 void CrLf2Yen(AnsiString &ws, AnsiString cs);
 
-void EntryMsg(AnsiString ttl, AnsiString as, WORD Key);	//JA7UDE 0428
+void EntryMsg(AnsiString ttl, AnsiString as, WORD Key);	//IZ4OSH 0428
 void SetComboBox(TComboBox *pCombo, LPCSTR pList);
 void GetComboBox(AnsiString &as, TComboBox *pCombo);
 void SetGridWidths(TStringGrid *pGrid, LPCSTR pList);
@@ -747,7 +750,7 @@ int IsJA(const char *s);
 LPCSTR ClipCall(LPCSTR s);
 LPCSTR ClipCC(LPCSTR s);
 
-/* JA7UDE 0427
+/* IZ4OSH 0427
 inline LPUSTR StrDlm(LPUSTR &t, LPUSTR p, char c){return (LPUSTR)StrDlm(LPSTR(t), LPSTR(p), c);};
 inline LPUSTR StrDlm(LPUSTR &t, LPUSTR p){return (LPUSTR)StrDlm(LPSTR(t), LPSTR(p));};
 inline LPUSTR StrDlm(LPUSTR &t, LPSTR p, char c){return (LPUSTR)StrDlm(LPSTR(t), p, c);};

@@ -53,7 +53,7 @@ class CEXTFSK
 {
 private:
 	//HANDLE			m_hLib;
-	HINSTANCE		m_hLib;    //JA7UDE 0427
+	HINSTANCE		m_hLib;    //IZ4OSH 0427
 	extfskOpen		fextfskOpen;
 	extfskClose		fextfskClose;
 	extfskIsTxBusy	fextfskIsTxBusy;
